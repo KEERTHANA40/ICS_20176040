@@ -1,0 +1,69 @@
+Processor executes sequence of instructions from start-up to shutdown.The transition from one to the next, is called control transfer. The sequence of transfers is called control flow
+.One instruction at a time
+
+To alter the control flow:
+
+1)Conditional & unconditional branches(jumps  and branches)
+2)Calls & returns
+
+Mechanisms for exceptional control flow exists at all levels of a computer system.
+A)Low level Mechanism
+1)exceptions
+2)change in control flow in response to a system event (i.e.,change in system state)
+3)Combination of hardware and OS software
+
+
+B) Higher Level Mechanisms
+1. Process context switch
+2. Signals
+3. Nonlocal jumps (setjmp/longjmp)
+
+
+Exceptions
+A transfer of control to the OS in response to some event (i.e., a change in processor state)
+
+ex: divide by zero, arithmetic overflows
+
+A)Asynchronous (not caused by an instruction)
+1)Interrupt
+• Signal from an I/O device (i.e. network packet)
+• Always return to the next instruction
+
+B)Synchronous (caused by an instruction)
+1) Trap
+• Intentional exception (i.e. system call)
+• Always return to the next instruction
+2) Fault
+• Potentially recoverable error (i.e. page fault)
+• Might return to the current instruction (if problem is fixed) to allow it to re-execute
+3)Abort
+• Non-recoverable error (i.e. machine check error)
+• Terminates the application
+
+System Calls:
+
+read: file reading
+fork: create a new process
+execve: loading a new program
+exit: terminating the current process
+
+
+Processes
+
+A process is an instance of a program in execution. This means it includes:
+
+the code in memory,
+the data in memory,
+the stack of the program
+the general-purpose registers
+the program counters
+environmnet variables
+the set of open file descriptors
+
+Concurrent Processes
+Two processes run concurrently (are concurrent) if their flows overlap in time.Otherwise, they are sequential
+
+
+Logical Control Flow
+Processes must share the processor with other processes as well as the OS
+.Logical control flow is the illusion that each process has exclusive use of the processor
